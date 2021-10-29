@@ -5,7 +5,7 @@ import {
   ModuleIdentifier,
   RuntimeAPI,
   Module,
-} from "./framework";
+} from "./types";
 
 const extractDefaultExport = <T>(module: DefaultExportedFile<T>) =>
   module.default;

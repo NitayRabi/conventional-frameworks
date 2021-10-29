@@ -7,10 +7,6 @@ export interface RuntimeAPI {
   getApi<T = any>(identifier: ModuleIdentifier<T>): T;
 }
 
-export const createModule = <T extends ModuleIdentifier>(module: Module<T>) => {
-  return module;
-};
-
 export interface Module<T extends ModuleIdentifier = ModuleIdentifier> {
   identifier: T;
   declareApi?(): T["api"];
