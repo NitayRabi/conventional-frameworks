@@ -1,4 +1,4 @@
-import { ModuleIdentifier } from "../../framework/framework";
+import { ModuleIdentifier } from "../../framework";
 
 type LogFunction = (...args: string[]) => void;
 

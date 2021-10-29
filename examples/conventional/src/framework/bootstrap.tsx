@@ -2,29 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { makeAutoObservable } from "mobx";
-import {
-  createRuntimeAPI,
-  executeModules,
-  getLayouts,
-  getModules,
-  getPages,
-  Layout,
-  Page,
-  RuntimeAPI,
-} from "./framework";
-
-export interface AppState {
-  runtimeAPI: RuntimeAPI;
-  pages: Page[];
-  layouts: Record<string, Layout>;
-}
-
-export interface AppAPI {
-  setPages(pages: Page[]): void;
-  setLayouts(layouts: Layout[]): void;
-  setRuntimeAPI(api: RuntimeAPI): void;
-  getLayout(name: string): Layout;
-}
+import { Layout, AppState, AppAPI } from "./types";
+import { createRuntimeAPI, executeModules } from "./appApi";
+import { getLayouts, getModules, getPages } from "./conventionsGatherer";
 
 const { pages, onPagesChange } = getPages();
 const { layouts, onLayoutsChange } = getLayouts();

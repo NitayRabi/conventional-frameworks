@@ -6,9 +6,9 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { Layout, Page } from "./framework";
+import { Layout } from "./types";
 import "semantic-ui-css/semantic.min.css";
-import { AppAPI, AppState, PageComponent } from ".";
+import { AppAPI, AppState, PageComponent } from "./types";
 
 const renderPageWithLayout = (Page: PageComponent, { Component }: Layout) => {
   return <Component Page={Page}></Component>;

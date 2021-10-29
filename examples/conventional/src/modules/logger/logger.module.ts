@@ -1,4 +1,4 @@
-import { createModule } from "../../framework/framework";
+import { createModule } from "../../framework/conventionCreators";
 import { LoggerModule } from "./logger.types";
 
 export default createModule({

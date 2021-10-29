@@ -1,15 +1,14 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 import { Container, Menu, Segment } from "semantic-ui-react";
-import { createLayout, LayoutComponent } from "../framework/framework";
-import { useRuntimeAPI } from "../framework/hooks";
+import { useRuntimeAPI, LayoutComponent, createLayout } from "../framework";
 import { LoggerModule } from "../modules/logger/logger.types";
 
 const Default: LayoutComponent = ({ Page }) => {
   const { getApi } = useRuntimeAPI();
   const logger = getApi(LoggerModule);
 
-  logger.log("Works!");
+  logger.log("Log from logger module!");
   return (
     <Segment
       inverted
