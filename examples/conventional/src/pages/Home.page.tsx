@@ -1,5 +1,4 @@
 import React from "react";
-import { observer } from "mobx-react-lite";
 import {
   Container,
   Header,
@@ -73,6 +72,6 @@ const Home: React.FC = () => {
 export default createPage({
   layout: "default",
   path: "/home",
-  Component: observer(Home),
+  Component: Home,
   redirects: [{ from: "/" }],
 });

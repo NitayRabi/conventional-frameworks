@@ -1,5 +1,4 @@
 import React from "react";
-import { observer } from "mobx-react-lite";
 import { Container, Menu, Segment } from "semantic-ui-react";
 import { useRuntimeAPI, LayoutComponent, createLayout } from "../framework";
 import { LoggerModule } from "../modules/logger/logger.types";
@@ -36,5 +35,5 @@ const Default: LayoutComponent = ({ Page }) => {
 
 export default createLayout({
   name: "default",
-  Component: observer(Default),
+  Component: Default,
 });

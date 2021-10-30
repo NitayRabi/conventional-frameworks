@@ -27,7 +27,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "new:module": "hygen module new"
+    "generate:module": "hygen module new",
+    "generate:page": "hygen pages new",
+    "generate:layout": "hygen layouts new"
   },
   "eslintConfig": {
     "extends": [
