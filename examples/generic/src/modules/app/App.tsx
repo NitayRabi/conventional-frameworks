@@ -29,20 +29,20 @@ const App: React.FC<AppProps> = ({ pages, getLayout }) => {
   return (
     <Router>
       <Switch>
-        {pages.map(({ path, getComponent, layout, redirects }) => (
-          <React.Fragment key={path}>
-            <Route path={path}>
-              {renderPageWithLayout(getComponent(), getLayout(layout))}
-            </Route>
-            {redirects?.map(({ from }) => {
-              return (
-                <Route key={from + path} path={from}>
-                  <Redirect to={path} />
-                </Route>
-              );
-            })}
-          </React.Fragment>
+        {pages.map(({ path, getComponent, layout }) => (
+          <Route path={path}>
+            {renderPageWithLayout(getComponent(), getLayout(layout))}
+          </Route>
         ))}
+        {
+          pages.map(({ path, redirects }) => redirects?.map(({ from }) => {
+            return (
+              <Route key={from + path} path={from}>
+                <Redirect to={path} />
+              </Route>
+            );
+          }))
+        }
       </Switch>
     </Router>
   );

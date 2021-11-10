@@ -18,20 +18,20 @@ const App: React.FC<{ state: AppState & AppAPI }> = ({ state }) => {
   return (
     <Router>
       <Switch>
-        {state.pages.map(({ path, Component, layout, redirects }) => (
-          <React.Fragment key={path}>
-            <Route path={path}>
-              {renderPageWithLayout(Component, state.getLayout(layout))}
-            </Route>
-            {redirects?.map(({ from }) => {
-              return (
-                <Route key={from + path} path={from}>
-                  <Redirect to={path} />
-                </Route>
-              );
-            })}
-          </React.Fragment>
+        {state.pages.map(({ path, Component, layout }) => (
+          <Route path={path}>
+            {renderPageWithLayout(Component, state.getLayout(layout))}
+          </Route>
         ))}
+        {
+          state.pages.map(({ path, redirects }) => redirects?.map(({ from }) => {
+            return (
+              <Route key={from + path} path={from}>
+                <Redirect to={path} />
+              </Route>
+            );
+          }))
+        }
       </Switch>
     </Router>
   );
