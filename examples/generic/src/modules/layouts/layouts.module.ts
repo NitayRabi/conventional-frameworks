@@ -19,7 +19,7 @@ const layoutsState = makeAutoObservable<LayoutsState & LayoutsAPI>({
 
 export default createModule({
   identifier: LayoutsModule,
-  declareApi: () => ({
+  createApi: () => ({
     getLayout: (...args) => layoutsState.getLayout(...args),
     addLayout: (...args) => layoutsState.addLayout(...args),
   }),

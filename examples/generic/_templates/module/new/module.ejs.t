@@ -6,7 +6,7 @@ import { <%=name%>Module } from "./<%=name%>.types";
 
 export default createModule({
     identifier: <%=name%>Module,
-    declareApi: () => ({}),
+    createApi: () => ({}),
     execute: () => {
         console.log('<%=name%> module running')
     }

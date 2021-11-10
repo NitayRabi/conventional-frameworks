@@ -22,7 +22,7 @@ const state = makeAutoObservable<PagesState & PagesAPI>({
 
 export default createModule({
   identifier: PagesModule,
-  declareApi: () => ({
+  createApi: () => ({
     addPage: (...args) => state.addPage(...args),
     getPages: () => state.getPages(),
   }),

@@ -20,9 +20,9 @@ const getModulesContext = () =>
 
 const getConventionContext = (type: ConventionType) => {
   const conventionGetterByType = {
-    module: getModulesContext,
     page: getPagesContext,
     layout: getLayoutsContext,
+    module: getModulesContext,
   };
   return conventionGetterByType[type]();
 };

@@ -13,7 +13,7 @@ export interface RuntimeAPI {
 
 export interface Module<T extends ModuleIdentifier = ModuleIdentifier> {
   identifier: T;
-  declareApi?(): T["api"];
+  createApi?(): T["api"];
   execute?(api: RuntimeAPI): void;
 }
 

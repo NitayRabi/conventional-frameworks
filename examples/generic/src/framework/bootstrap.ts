@@ -32,15 +32,15 @@ const getConventionalModules = () => {
 
 const bootstrapModules = (modules: Module[]) => {
   const container = new Container();
-  const resolve = createResolve(container);
+  const resolveApi = createResolve(container);
   const api: RuntimeAPI = {
-    getApi: <T>({ symbol }: ModuleIdentifier<T>) => resolve<T>(symbol)(),
+    getApi: <T>({ symbol }: ModuleIdentifier<T>) => resolveApi<T>(symbol)(),
   };
-  modules.forEach(({ identifier, declareApi }) => {
-    declareApi &&
+  modules.forEach(({ identifier, createApi }) => {
+    createApi &&
       container
         .bind<any>(identifier.symbol)
-        .toFactory(declareApi)
+        .toFactory(createApi)
         .inSingletonScope();
   });
 
